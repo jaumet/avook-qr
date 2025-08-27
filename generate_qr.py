@@ -7,8 +7,18 @@ import uuid
 
 
 def main():
-    base_url = input("Base URL (ex: https://my.domain/qr/): ").strip()
-    img_name = input("Nom d'imatge per al QR (ex: product1.png): ").strip()
+    default_url = "https://audiovook.com/qr/code/"
+    default_image = "qrlogo.png"
+
+    base_url = (
+        input(f"Base URL (ex: https://my.domain/qr/) [{default_url}]: ").strip()
+        or default_url
+    )
+    img_name = (
+        input(f"Nom d'imatge per al QR (ex: product1.png) [{default_image}]: ").strip()
+        or default_image
+    )
+
     product_id = input("ID de producte: ").strip()
     in_shop = input("És en una botiga? (s/n): ").lower().startswith("s")
     shop_id = input("ID de botiga (en blanc si no): ").strip()
