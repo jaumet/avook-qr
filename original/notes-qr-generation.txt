@@ -1,0 +1,6 @@
+
+Example the comanda:
+
+./QR-generate.sh --url https://play.audiovook.com/share/w_uWVdtcG0 -o QR_CAT-Llegendes_catalanes_i_altres_narracions.jpg
+
+* EL logo està definit al script!
