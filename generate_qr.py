@@ -18,6 +18,7 @@ def main():
         input(f"Nom d'imatge per al QR (ex: product1.png) [{default_image}]: ").strip()
         or default_image
     )
+
     product_id = input("ID de producte: ").strip()
     in_shop = input("És en una botiga? (s/n): ").lower().startswith("s")
     shop_id = input("ID de botiga (en blanc si no): ").strip()
