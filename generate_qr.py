@@ -21,11 +21,28 @@ def main():
     count_str = input("Nombre de QR a generar [1]: ").strip()
     num_qr = int(count_str) if count_str else 1
 
+    # --- PR PROPOSAL: permet reutilitzar metadades per a múltiples QR ---
+    same_meta = True
+    if num_qr > 1:
+        same_meta = input(
+            "Aplicar les mateixes dades de producte i botiga a tots els QR? (s/n): "
+        ).lower().startswith("s")
+
+    if same_meta:
+        common_product_id = input("ID de producte: ").strip()
+        common_in_shop = input("És en una botiga? (s/n): ").lower().startswith("s")
+        common_shop_id = input("ID de botiga (en blanc si no): ").strip()
+
     for i in range(num_qr):
         print(f"\n-- QR {i + 1} de {num_qr} --")
-        product_id = input("ID de producte: ").strip()
-        in_shop = input("És en una botiga? (s/n): ").lower().startswith("s")
-        shop_id = input("ID de botiga (en blanc si no): ").strip()
+        if same_meta:
+            product_id = common_product_id
+            in_shop = common_in_shop
+            shop_id = common_shop_id
+        else:
+            product_id = input("ID de producte: ").strip()
+            in_shop = input("És en una botiga? (s/n): ").lower().startswith("s")
+            shop_id = input("ID de botiga (en blanc si no): ").strip()
 
         unique_code = uuid.uuid4().hex[:12]
         final_url = f"{base_url}{unique_code}"
