@@ -20,3 +20,11 @@ number of QR codes to generate in one run. If no subfolder is specified,
 files land directly in `OUTPUT/`. When generating more than one QR, the
 script asks whether the product and shop information should be reused for
 all codes or entered separately for each one.
+
+the defaults:
+
+- Base URL: `https://audiovook.com/qr/code/`
+- QR image filename: `qrlogo.png`
+
+The final QR encodes the base URL plus a generated unique code and writes a
+JSON file alongside the image in `original/OUTPUT/`.

@@ -21,6 +21,7 @@ def main():
     count_str = input("Nombre de QR a generar [1]: ").strip()
     num_qr = int(count_str) if count_str else 1
 
+    # --- PR PROPOSAL: permet reutilitzar metadades per a múltiples QR ---
     same_meta = True
     if num_qr > 1:
         same_meta = input(
