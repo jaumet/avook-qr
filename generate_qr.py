@@ -6,7 +6,6 @@ import pathlib
 import uuid
 import shutil
 
-
 def check_dependencies():
     required = ["qrencode", "convert", "identify", "composite"]
     missing = [cmd for cmd in required if shutil.which(cmd) is None]
