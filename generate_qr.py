@@ -5,6 +5,7 @@ import datetime
 import pathlib
 import uuid
 import shutil
+import random
 
 
 def main():
@@ -30,28 +31,24 @@ def main():
 
     if same_meta:
         common_product_id = input("ID de producte: ").strip()
-        common_in_shop = input("És en una botiga? (s/n): ").lower().startswith("s")
         common_shop_id = input("ID de botiga (en blanc si no): ").strip()
         common_pvp = float(input("PVP: ").strip() or 0)
         common_currency = input("Moneda del PVP [euro]: ").strip() or "euro"
-        common_pin = input("PIN (6 dígits): ").strip()
 
     for i in range(num_qr):
         print(f"\n-- QR {i + 1} de {num_qr} --")
         if same_meta:
             product_id = common_product_id
-            in_shop = common_in_shop
             shop_id = common_shop_id
             pvp = common_pvp
             currency = common_currency
-            pin = common_pin
         else:
             product_id = input("ID de producte: ").strip()
-            in_shop = input("És en una botiga? (s/n): ").lower().startswith("s")
             shop_id = input("ID de botiga (en blanc si no): ").strip()
             pvp = float(input("PVP: ").strip() or 0)
             currency = input("Moneda del PVP [euro]: ").strip() or "euro"
-            pin = input("PIN (6 dígits): ").strip()
+
+        pin = f"{random.randint(0, 999999):06d}"
 
         qr_code = uuid.uuid4().hex[:12]
         avook_url = f"{base_url}{qr_code}"

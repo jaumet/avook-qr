@@ -32,6 +32,8 @@ The generated JSON now follows this structure:
 }
 ```
 
+The `pin` value is automatically generated for each QR as a random six-digit number.
+
 Additional prompts let you choose a subfolder inside `OUTPUT/` and the
 number of QR codes to generate in one run. If no subfolder is specified,
 files land directly in `OUTPUT/`. When generating more than one QR, the
